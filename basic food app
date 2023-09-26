@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Welcome to the food app!");
+        System.out.println("Please create your password.");
+        Scanner scan = new Scanner(System.in);
+        String pass1 = scan.next();
+        System.out.println("Your password is :" + pass1);
+
+        System.out.println("Please enter your password.");
+        String pass2 = scan.next();
+
+        while (!pass2.equals(pass1)){
+            System.out.println("Incorrect password, please re-enter your password.");
+            pass2 = scan.next();
+        }
+        System.out.println("Access granted.");
+        System.out.println("Would you like to order food?");
+        String ans = scan.next();
+
+        if (ans.equals("yes")){
+            System.out.println("Order what you would like to have.");
+            System.out.println("Pizza, Burger.");
+            String ans1 = scan.next();
+
+            while (!ans1.equals("pizza")&& !ans1.equals("burger")){
+                System.out.println("Sorry we do not serve it, would like to order pizza or a burger?");
+                ans1=scan.next();
+            }
+            if (ans1.equals("pizza") || ans1.equals("burger")) {
+                System.out.println("Would like to drink Coke?");
+                String ans2 = scan.next();
+                while (!ans2.equals("yes") && !ans2.equals("no")){
+                    System.out.println("Sorry wrong command.");
+                    ans2 = scan.next();
+                }
+                if (ans2.equals("yes")){
+                    System.out.println("Great your order is Coke and " + ans1);
+                }
+                else{
+                    System.out.println("Great your order is " + ans1);
+                }
+                }
+            System.out.println("Please confirm order by entering your password.");
+            pass2 = scan.next();
+            if (pass2.equals(pass1)){
+                System.out.println("Your order is on its way.");
+            }
+        }
+        else {
+              System.out.println("Have a good day.");
+        }
+
+    }
+}
